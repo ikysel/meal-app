@@ -3,9 +3,9 @@ import { View, Text, StyleSheet } from "react-native";
 
 const CategoriesScreen = (props) => {
   return (
-    <Viev>
+    <View style={styles.screen}>
       <Text>Categories screen</Text>
-    </Viev>
+    </View>
   );
 };
 
