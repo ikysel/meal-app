@@ -9,20 +9,26 @@ import {
 } from "react-native";
 
 import CATEGORIES from "../data/dummy-data";
-import Colors from '../constans/Colors'
+
+import CategoryGridTile from "../components/CategoryGridTile";
+
+import Colors from "../constans/Colors";
 
 const CategoriesScreen = (props) => {
   const renderGridItem = (itemData) => {
     return (
-      <TouchableOpacity style={{...styles.itemGrid, backgroundColor: itemData.item.color}} onPress={()=>{
-        props.navigation.navigate({ routeName: 'CategoryMeals', params: {
-          categoryId: itemData.item.id
-        }})
-      }}>
-        <View>
-          <Text>{itemData.item.title}</Text>
-        </View>
-      </TouchableOpacity>
+      <CategoryGridTile
+        title={itemData.item.title}
+        color={itemData.item.color}
+        onSelected={() => {
+          props.navigation.navigate({
+            routeName: "CategoryMeals",
+            params: {
+              categoryId: itemData.item.id,
+            },
+          });
+        }}
+      />
     );
   };
   return (
@@ -31,28 +37,18 @@ const CategoriesScreen = (props) => {
 };
 
 CategoriesScreen.navigationOptions = {
-  headerTitle: 'Meal Categories',
+  headerTitle: "Meal Categories",
   headerStyle: {
-    backgroundColor: Colors.primaryColor
+    backgroundColor: Colors.primaryColor,
   },
-  headerTintColor: 'white'
-}
+  headerTintColor: "white",
+};
 
 const styles = StyleSheet.create({
   screen: {
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-  },
-  itemGrid: {
-    flex: 1,
-    margin: 15,
-    height: 150,
-    borderWidth: 2,
-    borderRadius: 20,
-    borderColor: '#ccc',
-    justifyContent: 'center',
-    alignItems: 'center',
   },
 });
 

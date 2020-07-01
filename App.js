@@ -5,10 +5,10 @@ import { AppLoading } from "expo";
 
 import MealsNavigator from './navigation/MealsNavigator';
 
-const fetchFonts = () => {
-  return Font.loadAsync({
-    "open-sans": require("./assets/fonts/OpenSans-Regular.ttf"),
-    "open-sans-bold": require("./assets/fonts/OpenSans-Bold.ttf"),
+const fetchFonts = async () => {
+  return await Font.loadAsync({
+    'open-sans-bold': require("./assets/fonts/OpenSans-Bold.ttf"),
+    'open-sans': require("./assets/fonts/OpenSans-Regular.ttf"),
   });
 };
 
