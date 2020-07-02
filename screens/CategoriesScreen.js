@@ -8,7 +8,7 @@ import {
   TouchableOpacity,
 } from "react-native";
 
-import CATEGORIES from "../data/dummy-data";
+import { Categories } from "../data/dummy-data";
 
 import CategoryGridTile from "../components/CategoryGridTile";
 
@@ -32,7 +32,7 @@ const CategoriesScreen = (props) => {
     );
   };
   return (
-    <FlatList data={CATEGORIES} renderItem={renderGridItem} numColumns={2} />
+    <FlatList data={Categories} renderItem={renderGridItem} numColumns={2} />
   );
 };
 

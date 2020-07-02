@@ -45,7 +45,6 @@ const styles = StyleSheet.create({
     shadowOffset: { width: 0, height: 2 },
   },
   title: {
-    fontFamily: "open-sans-bold",
     fontSize: 18,
     textAlign: "right",
   },

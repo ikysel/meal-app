@@ -1,6 +1,6 @@
 import { Category } from "../models/category";
 
-const Categories = [
+export const Categories = [
   new Category("c1", "Italian", "#f5428d"),
   new Category("c2", "Quick & Easy", "#f54242"),
   new Category("c3", "Hamburgers", "#f5a442"),
@@ -13,4 +13,3 @@ const Categories = [
   new Category("c10", "Summer", "#47fced"),
 ];
 
-export default Categories;
