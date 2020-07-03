@@ -8,7 +8,16 @@ import MealItem from "../components/MealItem";
 
 const CategoryMealsScreen = (props) => {
   const renderMealItem = (itemData) => {
-    return <MealItem title={itemData.item.title} onSelectMeal={() => {}} />;
+    return (
+      <MealItem
+        title={itemData.item.title}
+        duration={itemData.item.duration}
+        complexity={itemData.item.complexity.toUpperCase()}
+        affordability={itemData.item.affordability}
+        imageUrl={itemData.item.imageUrl}
+        onSelectMeal={() => {}}
+      />
+    );  
   };
 
   const catId = props.navigation.getParam("categoryId");
