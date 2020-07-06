@@ -6,6 +6,7 @@ import { createDrawerNavigator } from "react-navigation-drawer";
 import CategoriesScreen from "../screens/CategoriesScreen";
 import CategoryMealsScreen from "../screens/CategoryMealsScreen";
 import MealDetailScreen from "../screens/MealDetailScreen";
+import FavoriteScreen from "../screens/FavoritesScreen";
 
 import Colors from "../constans/Colors";
 
@@ -15,10 +16,10 @@ const MealsNavigator = createStackNavigator(
     CategoryMeals: {
       screen: CategoryMealsScreen,
       navigationOptions: {
-          headerStyle: {
-              backgroundColor: Colors.accentColor
-          }
-      }
+        headerStyle: {
+          backgroundColor: Colors.accentColor,
+        },
+      },
     },
     MealDetail: MealDetailScreen,
   },
@@ -32,4 +33,9 @@ const MealsNavigator = createStackNavigator(
   }
 );
 
-export default createAppContainer(MealsNavigator);
+const MealFavTabNavigator = createBottomTabNavigator({
+  Meal: MealsNavigator,
+  Favorites: FavoriteScreen,
+});
+
+export default createAppContainer(MealFavTabNavigator);
