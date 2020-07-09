@@ -42,7 +42,7 @@ const MealsNavigator = createStackNavigator(
 );
 
 const FavNavigator = createStackNavigator({
-  Favorites: FavoriteScreen,
+  screen: FavoriteScreen,
   MealDetail: MealDetailScreen
 },
 {
