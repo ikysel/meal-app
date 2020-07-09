@@ -11,6 +11,7 @@ import CategoriesScreen from "../screens/CategoriesScreen";
 import CategoryMealsScreen from "../screens/CategoryMealsScreen";
 import MealDetailScreen from "../screens/MealDetailScreen";
 import FavoriteScreen from "../screens/FavoritesScreen";
+import FilersScreen from "../screens/FiltersScreen";
 
 import Colors from "../constans/Colors";
 import { Ionicons } from "@expo/vector-icons";
@@ -82,4 +83,13 @@ const MealFavTabNavigator =
         },
       });
 
-export default createAppContainer(MealFavTabNavigator);
+      const FiltersNavigator = createStackNavigator({
+        Filters: FilersScreen
+      })
+
+const MainNavigator = createDrawerNavigator({
+  MealsFavs: MealFavTabNavigator,
+  Filters: FiltersNavigator
+})
+
+export default createAppContainer(MainNavigator);
