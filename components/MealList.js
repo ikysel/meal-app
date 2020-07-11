@@ -30,7 +30,7 @@ const MealList = (props) => {
         data={props.listData}
         keyExtractor={(item, index) => item.id}
         renderItem={renderMealItem}
-        style={{ width: "85%" }}
+        style={{ width: "85%", fontFamily: 'open-sans-bold' }}
       />
     </View>
   );
@@ -41,6 +41,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
+    fontFamily: 'open-sans-bold'
   },
 });
 

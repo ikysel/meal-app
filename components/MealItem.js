@@ -18,9 +18,9 @@ const MealItem = (props) => {
             </ImageBackground>
           </View>
           <View style={{ ...styles.mealRow, ...styles.mealDetail }}>
-            <Text>{props.duration}m</Text>
-            <Text>{props.complexity}</Text>
-            <Text>{props.affordability}</Text>
+            <Text style={styles.mealInfo}>{props.duration}m</Text>
+            <Text style={styles.mealInfo}>{props.complexity}</Text>
+            <Text style={styles.mealInfo}>{props.affordability}</Text>
           </View>
         </View>
       </TouchableOpacity>
@@ -57,7 +57,7 @@ const styles = StyleSheet.create({
     height: "15%",
     paddingHorizontal: 10,
     justifyContent: "space-between",
-    alignItems: 'center'
+    alignItems: 'center',
   },
   title: {
     fontSize: 20,
@@ -65,7 +65,11 @@ const styles = StyleSheet.create({
     backgroundColor: 'rgba(0,0,0,0.5)',
     paddingVertical: 5,
     paddingHorizontal: 12,
-    textAlign: 'center'
+    textAlign: 'center',
+    fontFamily: 'open-sans'
+  },
+  mealInfo: {
+    fontFamily: 'open-sans-bold'
   }
 });
 
