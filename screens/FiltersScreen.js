@@ -6,6 +6,9 @@ import { HeaderButton } from "../components/HeaderButton";
 const FilterScreen = (props) => {
 
   const [isGlutenFree, setIsGlutenFree] = useState();
+  const [isVegan, setIsVegan] = useState();
+  const [isVegeterian, setIsVegeterian] = useState();
+  const [isLactoseFree, setIsLactoseFree] = useState();
 
   return (
     <View style={styles.screen}>
@@ -13,6 +16,18 @@ const FilterScreen = (props) => {
       <View style={styles.filterContainer}>
         <Text style={styles.filterLabel}>Gluten-free</Text>
         <Switch value={isGlutenFree} onValueChange={newValue=> setIsGlutenFree(newValue)}/>
+      </View>
+      <View style={styles.filterContainer}>
+        <Text style={styles.filterLabel}>Vegan</Text>
+        <Switch value={isVegan} onValueChange={newValue=> setIsVegan(newValue)}/>
+      </View>
+      <View style={styles.filterContainer}>
+        <Text style={styles.filterLabel}>Vegetarian</Text>
+        <Switch value={isVegeterian} onValueChange={newValue=> setIsVegeterian(newValue)}/>
+      </View>
+      <View style={styles.filterContainer}>
+        <Text style={styles.filterLabel}>Lactose-free</Text>
+        <Switch value={isLactoseFree} onValueChange={newValue=> setIsLactoseFree(newValue)}/>
       </View>
     </View>
   );
