@@ -3,8 +3,16 @@ import { View, Text, Switch, StyleSheet } from "react-native";
 import { HeaderButtons, Item } from "react-navigation-header-buttons";
 import { HeaderButton } from "../components/HeaderButton";
 
-const FilterScreen = (props) => {
+const FilterSwitch = (props) => {
+  return (
+    <View style={styles.filterContainer}>
+      <Text style={styles.filterLabel}>{props.label}</Text>
+      <Switch value={props.state} onValueChange={props.onChange} />
+    </View>
+  );
+};
 
+const FilterScreen = (props) => {
   const [isGlutenFree, setIsGlutenFree] = useState();
   const [isVegan, setIsVegan] = useState();
   const [isVegeterian, setIsVegeterian] = useState();
@@ -13,22 +21,26 @@ const FilterScreen = (props) => {
   return (
     <View style={styles.screen}>
       <Text style={styles.title}>Available filters</Text>
-      <View style={styles.filterContainer}>
-        <Text style={styles.filterLabel}>Gluten-free</Text>
-        <Switch value={isGlutenFree} onValueChange={newValue=> setIsGlutenFree(newValue)}/>
-      </View>
-      <View style={styles.filterContainer}>
-        <Text style={styles.filterLabel}>Vegan</Text>
-        <Switch value={isVegan} onValueChange={newValue=> setIsVegan(newValue)}/>
-      </View>
-      <View style={styles.filterContainer}>
-        <Text style={styles.filterLabel}>Vegetarian</Text>
-        <Switch value={isVegeterian} onValueChange={newValue=> setIsVegeterian(newValue)}/>
-      </View>
-      <View style={styles.filterContainer}>
-        <Text style={styles.filterLabel}>Lactose-free</Text>
-        <Switch value={isLactoseFree} onValueChange={newValue=> setIsLactoseFree(newValue)}/>
-      </View>
+      <FilterSwitch
+        label="Gluten-free"
+        state={isGlutenFree}
+        onChange={(newValue) => setIsGlutenFree(newValue)}
+      />
+      <FilterSwitch
+        label="Vegetarian"
+        state={isVegeterian}
+        onChange={(newValue) => setIsVegeterian(newValue)}
+      />
+      <FilterSwitch
+        label="Vegan"
+        state={isVegan}
+        onChange={(newValue) => setIsVegan(newValue)}
+      />
+      <FilterSwitch
+        label="Lactose-free"
+        state={isLactoseFree}
+        onChange={(newValue) => setIsLactoseFree(newValue)}
+      />
     </View>
   );
 };
@@ -57,18 +69,18 @@ const styles = StyleSheet.create({
   title: {
     fontFamily: "open-sans-bold",
     fontSize: 20,
-    marginVertical: 10
+    marginVertical: 10,
   },
   filterContainer: {
-    width: '80%',
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    marginVertical: 10
+    width: "80%",
+    flexDirection: "row",
+    justifyContent: "space-between",
+    marginVertical: 10,
   },
   filterLabel: {
-    fontFamily: 'open-sans',
-    fontSize: 16
-  }
+    fontFamily: "open-sans",
+    fontSize: 16,
+  },
 });
 
 export default FilterScreen;
