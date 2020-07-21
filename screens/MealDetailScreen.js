@@ -1,15 +1,18 @@
 import React from "react";
+import { useSelector } from 'react-redux';
+
 import { View, Text, StyleSheet, Image, ScrollView } from "react-native";
 import { HeaderButtons, Item } from "react-navigation-header-buttons";
 
 import { MEALS } from "../data/dummy-data";
 import HeaderButton from "../components/HeaderButton";
 import DefaultText from "../components/DefaultText";
-import Colors from "../constans/Colors";
 
 const MealDetailScreen = (props) => {
   const mealId = props.navigation.getParam("mealId");
-  const selectedMeal = MEALS.find((meal) => meal.id === mealId);
+
+  const availableMeals = useSelector(state=> state.meals.meals);
+  const selectedMeal = availableMeals.find((meal) => meal.id === mealId);
 
   const ListItem = (props) => {
     return (
@@ -48,8 +51,9 @@ const MealDetailScreen = (props) => {
 MealDetailScreen.navigationOptions = (navigationData) => {
   const mealId = navigationData.navigation.getParam("mealId");
   const selectedMeal = MEALS.find((meal) => meal.id === mealId);
+  const mealTitle = navigationData.navigation.getParam('mealTitle');
   return {
-    headerTitle: selectedMeal.title,
+    headerTitle: mealTitle.title,
     headerRight: (
       <HeaderButtons HeaderButtonComponent={HeaderButton}>
         <Item
